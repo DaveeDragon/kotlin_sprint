@@ -5,4 +5,5 @@ fun main(){
     val thanksForBusiness = "Спасибо большое за покупку, надеемся вам понравится товарБ ждем вас еще!"
     println(numbersOfOrders)
     println(thanksForBusiness)
+    println("refactor smth")
 }
