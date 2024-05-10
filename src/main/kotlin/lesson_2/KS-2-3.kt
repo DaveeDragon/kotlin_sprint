@@ -6,5 +6,6 @@ fun main(){
     val arrivalTimeHours = (departureTime + travelTime)/60
     val arrivalTimeMinutes = (departureTime + travelTime)%60
 
+
     println("${arrivalTimeHours}:${arrivalTimeMinutes}")
 }
