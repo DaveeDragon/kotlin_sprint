@@ -1,12 +1,16 @@
 package org.example.lesson_2
 
 fun main(){
+    val workersNumber = 50
+    val workersSalary = 30000
+    val internsNumber = 30
+    val internsSalary = 20
+    val salariesOfPermanentWorkers = workersSalary * workersNumber
+    val salariesOfInterns = internsSalary * internsNumber
+    val generalExpenaes = salariesOfPermanentWorkers + salariesOfInterns
+    val averageSalary = generalExpenaes / (internsNumber + workersNumber)
 
-    val salariesOfPermanentEmployees = 50 * 30000
-    val generalExpenaes = salariesOfPermanentEmployees + 30 * 20000
-    val averageSalary = generalExpenaes/80
-
-    println(salariesOfPermanentEmployees)
+    println(salariesOfPermanentWorkers)
     println(generalExpenaes)
     println(averageSalary)
 
