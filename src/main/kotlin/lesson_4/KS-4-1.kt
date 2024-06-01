@@ -1,9 +1,10 @@
 package org.example.lesson_4
 
 fun main() {
-    val busyTablesToday = 13
-    val busyTablesTommorow = 9
+    val TablesNumber = 13
+    val FreeTablesToday = 0
+    val FreeTablesTommorow = 4
 
-    println("Доступность столиков на сегодня: ${busyTablesToday != 13}")
-    println("Доступность столиков на сегодня: ${busyTablesTommorow != 13}")
+    println("Доступность столиков на сегодня: ${(TablesNumber - FreeTablesToday) != TablesNumber}")
+    println("Доступность столиков на сегодня: ${(TablesNumber - FreeTablesTommorow) != TablesNumber}")
 }
