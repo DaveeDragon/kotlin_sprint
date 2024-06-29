@@ -2,9 +2,10 @@ package org.example.lesson_5
 
 fun main(){
     println(" Докажите что вы не бот решив это простое выражение:   2+2=...")
-    val a = readLine()!!.toInt()
-    println("2+2=$a")
-    if (a == 4) {
+    val summ = readln().toInt()
+    val isNotBot = (summ == 4)
+    println(isNotBot)
+    if (isNotBot) {
         println("Добро пожаловать!!!")
     }
     else{
