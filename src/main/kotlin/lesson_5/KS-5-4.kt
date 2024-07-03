@@ -1,6 +1,7 @@
 package org.example.lesson_5
 
 fun main(){
+
     val name = "Zaphod"
     val password = "PanGalactic"
 
