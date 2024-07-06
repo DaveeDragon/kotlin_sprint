@@ -5,7 +5,7 @@ fun main(){
     var number = signUpNumber.random()
     println("Ваш код авторизации: ${number}")
 
-    println("Введите код авторизации:")
+     println("Введите код авторизации:")
     var checkNumber = readln().toInt()
     var verification = checkNumber == number
 
