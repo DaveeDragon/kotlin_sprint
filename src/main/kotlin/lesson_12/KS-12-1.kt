@@ -15,4 +15,5 @@ fun main(){
     friday.toConsole()
     println()
     saturday.toConsole()
+
 }
