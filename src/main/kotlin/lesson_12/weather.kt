@@ -5,6 +5,7 @@ class weather() {
     var nightTemperature: Int = 10
     var isRianing: Boolean = false
 
+
     fun toConsole(){
         println("Дневная температура равна: $dayTemperature")
         println("Ночная температура равна: $nightTemperature")

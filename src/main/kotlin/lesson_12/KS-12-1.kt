@@ -6,6 +6,7 @@ fun main(){
     friday.nightTemperature = 15
     friday.isRianing = false
 
+
     val saturday = weather()
     saturday.dayTemperature = 17
     saturday.nightTemperature = 8
