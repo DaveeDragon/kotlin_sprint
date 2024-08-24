@@ -11,4 +11,5 @@ class weather3(
         println("Идет ли дождь: $isRianing")
     }
 
+
 }
