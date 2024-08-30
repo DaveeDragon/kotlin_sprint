@@ -6,7 +6,7 @@ open class linerShips(
     val capacity: Int = 50,
     val lifting: Int = 30,
     val isBreakingIce: Boolean = false,
-){}
+)
 
 class cargoShips(
     name: String = "cargo",
