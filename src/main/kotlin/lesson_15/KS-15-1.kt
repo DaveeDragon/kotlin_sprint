@@ -1,11 +1,11 @@
 package org.example.lesson_15
 
 interface Flying {
-    fun FirstMethodOfMovement(){}
+    fun FirstMethodOfMovement()
 }
 
 interface Swimming{
-    fun SecondMethodOfMovement(){}
+    fun SecondMethodOfMovement()
 }
 
 class Crucian(): Swimming{
