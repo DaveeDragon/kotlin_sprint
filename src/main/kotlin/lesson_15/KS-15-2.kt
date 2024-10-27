@@ -9,8 +9,13 @@ open class Temperature(): WeatherStationStats()
 open class PrecipitationAmount():  WeatherStationStats()
 
 class WeatherServer(){
-    fun sendingMessage(messageType: String){
-        println("сообщение типа $messageType отправлено на сервер")
+    fun sendingMessage(messageType: WeatherStationStats){
+     when (messageType) {
+         is Temperature ->{ println("тип переданного сообщения температурный")}
+         is PrecipitationAmount ->{ println("тип переданного сообщения количество осадков")}
+         else ->{ println("тип переданного сообщения неизвестен")}
+
+        }
     }
 }
 
@@ -19,9 +24,9 @@ fun main(){
     val temperature1 = Temperature()
     val precipitationAmount1 = PrecipitationAmount()
 
-    server1.sendingMessage("температура")
+    server1.sendingMessage(temperature1)
     println()
-    server1.sendingMessage("количество осадков")
+    server1.sendingMessage(precipitationAmount1)
 
 
 }
