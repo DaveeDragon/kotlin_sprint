@@ -1,9 +1,8 @@
 package org.example.lesson_16
 
 class Circles  (
-    val rad: Int,
+    private val radius: Int,
 ){
-    private val radius = rad
     private val Pi = 3.14
     fun circleLength(){
         println("длина окружности равна ${2 * radius * Pi}")
