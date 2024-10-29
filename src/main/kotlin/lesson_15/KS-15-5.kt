@@ -1,26 +1,33 @@
 package org.example.lesson_15
 
 
-class Transportation(): Moveable
+class Trucks(): Moveable{
+    val maxPassengerQuantity = 1
+    val maxLoadWeight = 2
 
-interface Moveable{
-    fun Load(passengersQuantity: Int, loadWeight: Int,){
-        if (loadWeight == 0) {
-            for(i in (passengersQuantity/3) downTo 0)
-            println(" легковой автомобиль перевозит пассажиров")
-        }
-        else if ((passengersQuantity == 1) and (loadWeight != 0))
-            println("грузовой автомобиль перевозит пассажирв и груз")
-        else{
-            for (i in passengersQuantity downTo 3 step 3)
-                println(" легковой автомобиль перевозит пассажиров")
-            for(i in loadWeight downTo 2 step 2)
-                println("грузовой автомобиль перевозит пассажирв и груз")
-        }
-
+    override fun Load(passengersQuantity: Int, loadWeight: Int) {
+        if (passengersQuantity != 0)
+            println("грузовой автомобиль перевозит $maxPassengerQuantity пассажиров" )
+        println("грузовой автомобиль перевозит $maxLoadWeight тон груза" )
     }
 }
+
+class PassengerCars(): Moveable{
+    val maxPassengerQuantity = 3
+    override fun Load(passengersQuantity: Int, loadWeight: Int) {
+        if (passengersQuantity != 1)
+            println("грузовой автомобиль перевозит $maxPassengerQuantity пассажиров" )
+        else println("грузовой автомобиль перевозит 1 пассажира")
+    }
+}
+
+interface Moveable { fun Load(passengersQuantity: Int, loadWeight: Int, ) }
 fun main(){
-    val transportation = Transportation()
-    transportation.Load(9,4)
+    val truck = Trucks()
+    val passengerCar = PassengerCars()
+
+    passengerCar.Load(6,2)
+    passengerCar.Load(3,2)
+    truck.Load(0, 2)
+
 }
