@@ -4,17 +4,13 @@ class User(
     private val login: String,
     private val password: String,
 ) {
-    fun passwordValidate() {
-        println("напишите пароль")
-        do {
-            var passCheck = readln()
-            var verification = passCheck == password
-            println(verification)
-        } while (!verification)
+    fun passwordVerification( passCheck: String) {
+        var verification = passCheck == password
+        println(verification)
     }
 }
 
 fun main (){
     val user = User("давид","космос42")
-    user.passwordValidate()
+    user.passwordVerification("космос41")
 }
