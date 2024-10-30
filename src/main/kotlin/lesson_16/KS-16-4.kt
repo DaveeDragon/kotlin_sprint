@@ -11,9 +11,7 @@ class Order(){
         println("Статус изменен - $readyStatus")
     }
     fun requestToManager(newStatus: String){
-        val _newStatus = newStatus
-        val order = Order()
-        order.changeStatus(_newStatus)
+        changeStatus(newStatus)
     }
 }
 
