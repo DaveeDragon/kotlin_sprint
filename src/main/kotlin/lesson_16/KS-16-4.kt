@@ -6,13 +6,18 @@ class Order(){
     private val orderNumber = Random.nextInt(1000000,1999999)
     private var readyStatus = "заказ принят в обработку"
 
-    fun changeStatus(newStatus: String){
-        readyStatus = newStatus
-        println("Статус изменен - ${readyStatus}")
+   private fun changeStatus(_newStatus: String){
+        readyStatus = _newStatus
+        println("Статус изменен - $readyStatus")
+    }
+    fun requestToManager(newStatus: String){
+        val _newStatus = newStatus
+        val order = Order()
+        order.changeStatus(_newStatus)
     }
 }
 
 fun main(){
     val order = Order()
-    order.changeStatus("товар отдан на доставку")
+    order.requestToManager("товар отдан на доставку")
 }
