@@ -4,50 +4,43 @@ class Player(val name: String, ){
     private var health = 10
     var punchDamageScore = 5
 
-    fun Health(){
-        val player = Player("")
-
-        println("здоровье игрока - ${player.health}")
-    }
     private fun Death(){
-        val player = Player(" ")
-        println("игрока ${player.name} убили")
+        println("игрока $name убили")
         health = 0
         punchDamageScore = 0
     }
 
-    fun Punch(punchPoints: Int): Int {
-        val player = Player(" ")
-
-        return punchPoints
-        println("игрок ${player.name} нанес $punchPoints урона")
-    }
-
     fun Healing(healingPoints: Int){
-        val player = Player(" ")
-
         if (health != 0){
             health += healingPoints
-            println("игрок ${player.name} залечил немного раны - ${health}")}
-        else println("игроку ${player.name} умер, лечения не поможет")
+            println("игрок $name залечил немного раны - $health здоровья осталось")}
+        else println("игроку $name умер, лечения не поможет")
     }
 
     fun TakingDamage(damagePoints: Int){
-        val player = Player(" ")
-
-        if (player.health > damagePoints){
-            player.health -= damagePoints
-            println("игроку ${player.name} нанесли $damagePoints урона - ${player.health}")
+        if (health > damagePoints){
+            health -= damagePoints
+            println("игроку $name нанесли $damagePoints урона - $health здоровья осталось")
         }
-        else if (player.health == damagePoints){player.Death()}
-        else println("игрок ${player.name} уже умер")
+        else if (health == damagePoints){Death()}
+        else println("игрок $name уже умер")
     }
 }
 fun main(){
     val player = Player("Венгер восьмой")
+    val player1 = Player("Злой сосед Венгера восьмого")
+    val player2 = Player("Добрый сосед Венгера восьмого")
 
-    player.Health()
-    player.TakingDamage(1)
-    player.Health()
+
+    player.TakingDamage(4)
+
     player.Healing(3)
+    println()
+    player1.TakingDamage(4)
+    player1.Healing(2)
+    println()
+    player2.TakingDamage(2)
+    player2.Healing(3)
+
+
 }
