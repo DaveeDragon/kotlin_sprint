@@ -2,18 +2,20 @@ package org.example.lesson_18
 
 import kotlin.random.Random
 
-open class Dice(){
+abstract class Dice(
+    val sides: Int
+){
     open fun throwDice(){}
 }
 
-class FourSidedDice():Dice(){
-    override fun throwDice(){ println("Выпало грань - ${Random.nextInt(1,5)}") }
+class FourSidedDice(sides: Int):Dice(sides){
+    override fun throwDice(){ println("Выпало грань - ${(1..sides).random()}") }
 }
-class SixSidedDice():Dice(){
-    override fun throwDice() {println("Выпало грань - ${Random.nextInt(1,7)}") }
+class SixSidedDice(sides: Int):Dice(sides){
+    override fun throwDice() {println("Выпало грань - ${(1..sides).random()}") }
 }
-class EightSidedDice():Dice(){
-    override fun throwDice(){println("Выпало грань - ${Random.nextInt(1,9)}") }
+class EightSidedDice(sides: Int):Dice(sides){
+    override fun throwDice(){println("Выпало грань - ${(1..sides).random()}") }
 }
 fun showDices(dices: List<Dice>){
     dices.forEach{
@@ -22,9 +24,9 @@ fun showDices(dices: List<Dice>){
 
 }
 fun main(){
-    val dice1 = FourSidedDice()
-    val dice2 = SixSidedDice()
-    val dice3 = EightSidedDice()
+    val dice1 = FourSidedDice(4)
+    val dice2 = SixSidedDice(6)
+    val dice3 = EightSidedDice(8)
 
     val diceList = listOf<Dice>(dice1, dice2, dice3)
     showDices(diceList)
