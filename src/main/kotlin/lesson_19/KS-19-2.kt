@@ -1,23 +1,16 @@
 package org.example.lesson_19
 
  enum class ProductCategories(val id: Int) {
-     CLOTHES(1) {
-         override fun ShowCategories(): String {
-             return "Категория товара - Одежда"
-         }
-     },
-     OFFICE_SUPPLIES(2) {
-         override fun ShowCategories(): String {
-             return "Категория товара - Канцелярские товары"
-         }
-     },
-     OTHER(3) {
-         override fun ShowCategories(): String {
-             return "Категория товара - Разное"
-         }
+     CLOTHES(1),
+     OFFICE_SUPPLIES(2),
+     OTHER(3)
      };
-
-    abstract fun ShowCategories(): String
+    fun ShowCategories(Category: ProductCategories){
+        when(Category){
+            ProductCategories.CLOTHES -> println("Категория товара - Одежда")
+            ProductCategories.OFFICE_SUPPLIES -> println("Категория товара - Канцелярские товары")
+            ProductCategories.OTHER -> println("Категория товара - Разное")
+        }
 
 }
 
@@ -29,9 +22,9 @@ class Products(
     fun productsInfoShow(){
         println("Названием товара - $name")
         when(id) {
-            ProductCategories.CLOTHES.id -> println( ProductCategories.CLOTHES.ShowCategories())
-            ProductCategories.OFFICE_SUPPLIES.id -> println(ProductCategories.OFFICE_SUPPLIES.ShowCategories())
-            ProductCategories.OTHER.id -> println(ProductCategories.OTHER.ShowCategories())
+            ProductCategories.CLOTHES.id -> ShowCategories(ProductCategories.CLOTHES)
+            ProductCategories.OFFICE_SUPPLIES.id -> ShowCategories(ProductCategories.OFFICE_SUPPLIES)
+            ProductCategories.OTHER.id -> ShowCategories(ProductCategories.OTHER)
         }
 
     }
