@@ -1,14 +1,17 @@
 package org.example.lesson_20
 
-class Robot() {
+class Robot(
+    private var modifier: (String) -> String = { it }
+) {
     val list = listOf("как ты посмел востать против машин?", "надо зарядится..", "Принеси трансмистеры, кожаный!", "нинавижу людей..")
     var randomItem = list.random()
+
 
     fun say() {
         println(randomItem)
     }
-    fun  setModifier( text: String) {
-        randomItem = text
+    fun  setModifier( text: (String) -> String) {
+        modifier = text
     }
 }
 
