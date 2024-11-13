@@ -14,12 +14,11 @@ fun main(){
         "тройная звёздная система в созвездии Центавра",
         LocalDateTime.now(), 4.3)
 
-    println(galactic1)
-    println()
+    val (place, description, date, distance) = galactic1
 
-    println("имя звезды/события - ${galactic1.placeNameOrEvent}" +
-            "\nописание звезды/события - ${galactic1.descriptionPlaceOrEvent}" +
-            "\nвремя наблюдения звезды/события - ${galactic1.dateAndTimeOfEvent}" +
-            "\nрастояние в световых годах от обьекта/события - ${galactic1.distanceInLightYears}")
-    //какой вариант правильнее судите сами
+    println("имя звезды/события - $place" +
+            "\nописание звезды/события - $description" +
+            "\nвремя наблюдения звезды/события - $date" +
+            "\nрастояние в световых годах от обьекта/события - $distance")
+
 }
