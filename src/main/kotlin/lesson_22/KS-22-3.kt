@@ -8,7 +8,8 @@ data class Something(
 
 fun main() {
     val thing1 = Something("чудо благородное", "небеса", 5)
-    println(thing1.name)
-    println(thing1.source)
-    println(thing1.age)
+    val (name, source, age) = thing1
+    println(name)
+    println(source)
+    println(age)
 }
