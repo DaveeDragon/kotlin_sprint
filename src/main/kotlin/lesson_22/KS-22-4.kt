@@ -9,28 +9,24 @@ data class MainScreenStat(
 class  MainScreenViewMode() {
     fun loadData(){
         var state = MainScreenStat("отсутствие данных")
-        val state1 = state.copy()
+        state = state.copy()
+        println(state)
+        println()
+        Thread.sleep(1000)
 
         state = MainScreenStat("загрузка данных", true)
-        val state2 = state.copy()
+        state = state.copy()
+        println(state)
+        println()
+        Thread.sleep(1000)
 
         state = MainScreenStat("наличие загруженных данных")
-        val state3 = state.copy()
-
-        println(state1)
-        println()
-        Thread.sleep(1000)
-        println(state2)
-        println()
-        Thread.sleep(1000)
-        println(state3)
-        println()
+        state = state.copy()
+        println(state)
     }
 }
 
 fun main(){
     val mainScreen = MainScreenViewMode()
     mainScreen.loadData()
-
-
 }
