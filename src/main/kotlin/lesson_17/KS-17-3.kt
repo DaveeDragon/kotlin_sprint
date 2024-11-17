@@ -4,12 +4,12 @@ class Folder(
     val secretFlag: Boolean,
 ){
     val filesQuantity: Int = 32
-        get()  = if (secretFlag == true) 0
+        get() = if (secretFlag == true) 0
         else field
 
     val name: String = "Топ сикрет"
-        get()  = if (secretFlag == true)"скрытая папка"
-        else "папка $field"
+        get() = if (secretFlag == true)"скрытая папка"
+        else field
 }
 fun main(){
     val folder = Folder(true)
