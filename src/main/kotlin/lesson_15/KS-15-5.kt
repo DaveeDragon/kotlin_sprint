@@ -1,83 +1,84 @@
 package org.example.lesson_15
 
 interface Moveable {
-    fun Load(
-        name: String,
-        _maxLoadWeight: Int,
-        _maxPassengerQuantity: Int,
-        passengersQuantity: Int,
-        loadWeight: Int,
-
-        ) {
-        val weightDifference = loadWeight - _maxLoadWeight
-        val passangersDifference = passengersQuantity - _maxPassengerQuantity
-        when (passengersQuantity) {
-            0 -> {
-                when (loadWeight) {
-                    1 -> println("$name перевозит $passengersQuantity пассажира и $loadWeight тон груза" +
-                            "\nвсех пассажир и груз перевезли")
-
-                    2 ->  println("$name  перевозит $passengersQuantity пассажира и $loadWeight тон груза" +
-                            "\nвсех пассажир и груз перевезли")
-
-                    else -> println("$name  перевозит $_maxLoadWeight тон груза \n" +
-                            "всех пассажиров перевезли, осталось ${weightDifference} тон груза")
-                }
-            }
-
-            1 -> {
-                when (loadWeight) {
-                    1 ->  println("$name  автомобиль перевозит $passengersQuantity пассажира и $loadWeight тон груза" +
-                            "\nвсех пассажир и груз перевезли")
-
-                    2 ->  println("$name  автомобиль перевозит $passengersQuantity пассажира и $loadWeight тон груза" +
-                            "\nвсех пассажир и груз перевезли")
-
-                    else ->  println("$name автомобиль перевозит $passengersQuantity пассажира и $_maxLoadWeight тон груза " +
-                            "\nвсех пассажиров перевезли, осталось ${weightDifference} тон груза")
-                }
-            }
-
-            2 -> {
-                when (loadWeight) {
-                    1 ->  println("$name перевозит $passengersQuantity пассажира и $loadWeight тон груза" +
-                            "\nвесь груз перевезли, Осталось $passangersDifference пассажиров")
-
-                    2 ->  println("$name перевозит $passengersQuantity пассажира и $loadWeight тон груза" +
-                            "\nвесь груз перевезли, Осталось $passangersDifference пассажиров")
-
-                    else ->  println("$name перевозит $passengersQuantity пассажира и $_maxLoadWeight тон груза " +
-                            "\nОсталось $weightDifference тон груза и $passangersDifference пассажиров")
-                }
-            }
-
-            else -> {
-                when (loadWeight) {
-                    1 ->  println("$name перевозит $passengersQuantity пассажира и $loadWeight тон груза" +
-                            "\nОсталось $passangersDifference пассажиров")
-
-                    2 ->  println("$name перевозит $passengersQuantity пассажира и $loadWeight тон груза" +
-                            "\nвесь груз перевезли, Осталось $passangersDifference пассажиров")
-
-                    else ->  println("$name перевозит $passengersQuantity пассажира и $_maxLoadWeight тон груза " +
-                            "\nОсталось $weightDifference тон груза и $passangersDifference пассажиров")
-                }
-            }
-
-        }
+    fun move() {
+        println("транспортное средство переместилоссь")
     }
 }
 
-class Trucks(): Moveable {}
-class PassengerCars(): Moveable {}
+interface PassengerTransportation{
+    fun loadPassengers(passengersQuantity: Int,) {}
+
+    fun unloadPassengers() {}
+}
+
+
+interface CargoTransportation{
+    fun loadCargo(loadCargo: Int,) {}
+
+    fun unloadCargo() {}
+}
+
+
+class Trucks(): Moveable, CargoTransportation, PassengerTransportation {
+    private val maxPassengers = 1
+    private val maxCargo = 2
+
+    override fun loadPassengers (passengersQuantity: Int,) {
+        if (passengersQuantity != 0)
+            println("грузовик загрузил $maxPassengers пассажира, осталось ${passengersQuantity - maxPassengers} пассажиров")
+        else println("пассажиров нет")
+    }
+
+    override fun unloadPassengers () {
+            println("грузовик разгрузил $maxPassengers пассажиров")
+    }
+
+    override fun loadCargo (loadCargo: Int,) {
+        if (loadCargo != 0)
+            println("грузовик загрузил $maxCargo тонны груза, осталось  ${loadCargo - maxCargo} тонн")
+        else println("груза нет")
+    }
+
+    override fun  unloadCargo () {
+            println("грузовик разгрузил $maxCargo тонны")
+
+    }
+}
+
+
+class PassengerCars(): Moveable, PassengerTransportation {
+    private val maxPassengers = 3
+    override fun loadPassengers (passengersQuantity: Int,) {
+        if (passengersQuantity != 0)
+            println("легковой автомобиль загрузил $maxPassengers пассажира, осталось ${passengersQuantity - maxPassengers} пассажиров")
+        else println("пассажиров нет")
+    }
+
+    override fun unloadPassengers () {
+        println("легковой автомобиль разгрузил $maxPassengers пассажиров")
+    }
+}
 
 fun main(){
     val truck = Trucks()
-    val passengerCar = PassengerCars()
+    val car = PassengerCars()
 
-    passengerCar.Load("легковой автомобиль", 0, 3, 6,2)
+
+    truck.loadCargo(2)
+    truck.move()
+    truck.unloadCargo()
+    car.loadPassengers(0)
+
     println()
-    passengerCar.Load("легковой автомобиль", 0, 3, 3,2)
+    car.loadPassengers(6)
+    car.move()
+    car.unloadPassengers()
+
     println()
-    truck.Load("легковой автомобиль", 2, 0, 0,2)
+    car.loadPassengers(3)
+    car.move()
+    car.unloadPassengers()
+    car.loadPassengers(0)
+
     }
