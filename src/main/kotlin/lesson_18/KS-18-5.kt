@@ -4,26 +4,26 @@ open class Screen() {
     fun drawCircle( x: Int, y: Int) {
         println("нарисован круг с координами $x и $y")
     }
+    fun drawCircle( x: Float, y: Float) {
+        println("нарисован круг с координами $x и $y")
+    }
 
     fun drawSquare( x: Int, y: Int) {
         println("нарисован квадрат с координами $x и $y")
-    }
-
-    fun drawDot(x: Int, y: Int) {
-        println("нарисован квадрат с координами $x и $y")
-    }
-
-    fun drawCircle( x: Float, y: Float) {
-        println("нарисован круг с координами $x и $y")
     }
 
     fun drawSquare( x: Float, y: Float) {
         println("нарисован квадрат с координами $x и $y")
     }
 
-    fun drawDot(x: Float, y: Float) {
+
+    fun drawDot(x: Int, y: Int) {
         println("нарисован квадрат с координами $x и $y")
     }
+
+    fun drawDot(x: Float, y: Float) {
+        println("нарисован квадрат с координами $x и $y")}
+
 }
 
 fun main() {
