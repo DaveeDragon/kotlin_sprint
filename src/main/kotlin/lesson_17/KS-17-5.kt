@@ -7,7 +7,8 @@ class User(){
             println("Логин успешно сменен")
         }
     var password: String = "12345"
-        get() = repeat(password.length){return "*"}
+        get() = {repeat(times = field.length){ "" + "*"}}.toString()
+
         set(value: String){
             field = value
             println("Вы не можете изменить пароль")
