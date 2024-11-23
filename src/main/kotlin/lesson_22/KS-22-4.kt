@@ -10,8 +10,8 @@ class  MainScreenViewMode() {
 
 
     fun loadData(){
-        val state1 = state.copy("отсутствие данных")
-        println(state1)
+        state = state.copy("отсутствие данных")
+        println(state)
         println()
 
         val state2 = state.copy("загрузка данных",true)
